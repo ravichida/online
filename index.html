@@ -264,6 +264,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $(".nav-link").click(function () {
+            $("#collapsibleNavbar").hide();
+        });
+        $(".navbar-toggler").click(function () {
+            $("#collapsibleNavbar").toggle("slow", function() {});
+        });
+    </script>
 </body>
 
 </html>
