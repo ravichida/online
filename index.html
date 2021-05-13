@@ -18,6 +18,8 @@
             color: black;
             text-align: left;
             background-color: #fff;
+            border: 1px solid #1b7e3c;
+            border-radius: 5px;
         }
 
         .div {
@@ -38,7 +40,8 @@
 
         nav {
             background-color: #1b7e3c !important;
-            border-radius: 5px;
+            border-radius: 5px 5px 0 0;
+            margin: 0 -16px;
         }
 
         .navbar-nav {
@@ -73,13 +76,15 @@
 
         .title {
             margin-top: 20px;
+            border-bottom: 1px solid #1b7e3c;
         }
 
         .image {
             clear: both;
-            max-width: 450px;
+            max-width: 440px;
             margin: 20px;
             text-align: center;
+            padding: 0 15px;
 
         }
 
@@ -113,12 +118,21 @@
                 max-width: 100% !important;
             }
         }
+
+        .portfolio {
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        .center {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div className="container-fluid" id="root">
+    <div class="container-fluid" id="root">
         <nav class="navbar navbar-expand-sm"><img class="masthead-avatar mb-5 rounded-circle" width="60" height="60"
                 src="./images/logo.jpeg" alt=""><button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#collapsibleNavbar"><span class="navbar-toggler-icon clearfix"></span><br
@@ -127,19 +141,22 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#Portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#About me">About me</a></li>
                     <li class="nav-item"><a class="nav-link" href="#Experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#Contact me">Contact me</a></li>
                 </ul>
             </div>
         </nav>
         <div class="row">
-            <div class="col-*-* mx-auto"><img class="masthead-avatar mb-5 rounded-circle" width="200"
+            <div class="col-sm-6 center"><img class="masthead-avatar mb-5 rounded-circle" width="200"
                     src="./images/RaviChida.jpg" alt=""><br>
                 <div class="name">Ravi Kumar Chida</div>
             </div>
-            <div class="col-*-* mx-auto align-middle"><br><br>
-                <h3><a href="images/projects.pdf" alt="Download Portfolio"> Download Portfolio</a></h3>
+            <div class="col-sm-6 align-middle center"><br><br>
+                <h3><a href="images/projects.pdf" alt="Download Portfolio"> Download Portfolio</a></h3><br>
+                <a href="images/projects.pdf" alt="Download Portfolio">
+                    <img class="portfolio" src="./images/portfolio/projects_page-0051.jpg" alt="" />
+                </a>
+
             </div>
         </div>
         <div class="row">
@@ -161,14 +178,9 @@
             <div class="image align-content-center"><img class="" src="./images/portfolio/projects_page-0015.jpg" alt=""
                     data-toggle="modal" data-target="#portfolioModal"></div>
         </div>
-        <div className='row'>
-            <div className='col-sm-12'>
-                <h3 className='title' id="About me">About me</h3>
-            </div>
-        </div>
-        <div className='row'>
-            <div className='col-sm-12'>
-                <h4 className='title'>Technical Skills</h4>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h4 class='title'>Technical Skills</h4>
                 <ul>
                     <li>Web & Mobile Development – Using HTML5, CSS3, JavaScript, jQuery, React (reactjs).</li>
                     <li>Front-end frameworks for developing responsive, mobile-first websites – Bootstrap and CSS, SASS.
@@ -269,7 +281,7 @@
             $("#collapsibleNavbar").hide();
         });
         $(".navbar-toggler").click(function () {
-            $("#collapsibleNavbar").toggle("slow", function() {});
+            $("#collapsibleNavbar").toggle("slow", function () { });
         });
     </script>
 </body>
