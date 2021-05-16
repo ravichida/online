@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ravi Kumar Chida - JS6</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="container-fluid" id="root">
+        <nav class="navbar navbar-expand-sm"><img class="masthead-avatar mb-5 rounded-circle" width="60" height="60" src="./images/logo.jpeg" alt=""><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon clearfix"></span><br
+                    class="clearfix"><span class="navbar-toggler-icon clearfix"></span><br class="clearfix"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="BlockBindings.html">Block Bindings</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>ES6 Examples</h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h4>1. Block Bindings</h4>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <div id="accordion">
+                    <h3 class "title">Block-Level Declarations</h3>
+                    <div>
+                        <pre> <code>
+                            function getValue(condition) {
+                                if (condition) {
+                                    var value = "blue";
+                                    // other code
+                                    return value;
+                                } else {
+                                    // value exists here with a value of undefined
+                                    return null;
+                                }
+                                    
+                                // value exists here with a value of undefined
+                            }
+                            </code></pre>
+                    </div>
+                    <h3 class "title">var Declarations and Hoisting</h3>
+                    <div>
+                        <pre> <code>
+                        function getValue(condition) {
+                            if (condition) {
+                                var value = "blue";
+                                // other code
+                                return value;
+                            } else {
+                                // value exists here with a value of undefined
+                                return null;
+                            }
+                            
+                            // value exists here with a value of undefined
+                        }
+                        </code></pre>
+                    </div>
+
+                    <h3 class "title">let Declarations</h3>
+                    <div>
+                        <pre> <code>
+                        function getValue(condition) {
+                                if (condition) {
+                                let value = "blue";
+                                // other code
+                            return value;
+                            } else {
+                                // value doesn't exist here
+                                return null;
+                            }
+
+                            // value doesn't exist here
+                        }
+
+                        </code></pre>
+                    </div>
+                    <h3 class "title">
+                        No Redeclaration
+                    </h3>
+                    <div>
+                        <pre> <code>
+                            //No Redeclaration
+
+                            var count = 30;
+                            // throws an error
+                            let count = 40;
+    
+                            -----------------
+    
+                            var count = 30;
+
+                            if (condition) {
+                                // doesn't throw an error
+                                let count = 40;
+                                // more code
+                            }
+
+                            </code></pre>
+                    </div>
+                    <h3 class "title">const Declarations</h3>
+                    <div>
+                        <pre><code>
+                            // valid constant
+                            const maxItems = 30;
+                            // syntax error: missing initialization
+                            const name;
+
+                            //Constants vs. let Declarations
+
+                            if (condition) {
+                                const maxItems = 5;
+                                // more code
+                            }
+                                // maxItems isn't accessible here
+
+        const declaration throws an error when define with same name in the same scope.
+
+                                var message = "Hello!";
+                                let age = 25;
+
+                                // each of these throws an error
+                                const message = "Goodbye!";
+                                const age = 30;
+
+        Attempting to assign a const to a previously defined constant
+
+                                const maxItems = 5;
+                                // throws an error
+                                maxItems = 6;
+
+                                // Object Declarations with const
+
+                                const person = {
+                                    name: "Nicholas"
+                                    };
+
+                                    // works
+                                    person.name = "Greg";
+                                    
+                                    // throws an error
+                                    person = {
+                                        name: "Greg"
+                                    };
+
+                                    // The Temporal Dead Zone (TDZ)
+
+    A variable declared with either let or const cannot be accessed until after the
+                                    declaration
+
+                                    if (condition) {
+                                        console.log(typeof value);
+                                        let value = "blue";
+                                    }
+
+                        </code></pre>
+                    </div>
+                    <h3 class "title">Bindings in Loops</h3>
+                    <div>
+                        <pre><code>
+                            for (var i = 0; i < 10; i++) {
+                                process(items[i]);
+                            }
+                                // i is still accessible here
+                                console.log(i);    // 10
+
+                            // with let
+
+                            for (let i = 0; i < 10; i++) {
+                                process(items[i]);
+                            }
+
+                            // i is not accessible here - throws an error
+                                console.log(i);
+                        </code></pre>
+                    </div>
+                    <h3 class "title">Functions in Loops</h3>
+                    <div>
+                        <pre><code>
+                            var funcs = [];
+                            for (var i = 0; i < 10; i++) {
+                                funcs.push(function() {
+                                console.log(i);
+                            });
+                            }
+
+                            funcs.forEach(function(func) {
+                                func();
+                                // outputs the number "10" ten times
+                            });
+
+                            var funcs = [];
+
+                            //immediately invoked function expressions (IIFEs)
+
+                            for (var i = 0; i < 10; i++) {
+                                funcs.push((function(value) {
+                                    return function() {
+                                    console.log(value);
+                                    }
+                                }(i)));
+                            }
+                            funcs.forEach(function(func) {
+                            func();
+                                // outputs 0, then 1, then 2, up to 9
+                            });
+
+                            Example 1:
+                            ((i) => {let j = 10; console.log(i, j)})(i=5);
+
+                            Example 2:
+                            (() => {let j = 10; console.log(j)})();
+
+                            Example 3:
+                            function name(){console.log(i)}(i = 3);
+
+                        </code></pre>
+                    </div>
+                    <h3 class "title">let Declarations in Loops</h3>
+                    <div>
+                        <pre><code>
+                        var funcs = [];
+                        for (let i = 0; i < 10; i++) {
+                            funcs.push(function() {
+                            console.log(i);
+                        });
+                        }
+                        funcs.forEach(function(func) {
+                            func();
+                            // outputs 0, then 1, then 2, up to 9
+                        })
+
+                        //for for-in and for-of loops, as shown here:
+                        
+                        var funcs = [],
+                        object = {
+                            a: true,
+                            b: true,
+                            c: true
+                        };
+
+                        for (let key in object) {
+                            funcs.push(function() {
+                            console.log(key);
+                            });
+                        }
+
+                        funcs.forEach(function(func) {
+                            func();
+                            // outputs "a", then "b", then "c"
+                        });
+                            </code></pre>
+                    </div>
+
+
+                    <h3 class "title">const Declarations in Loops</h3>
+                    <div>
+                        <pre><code>
+
+                        var funcs = [],
+                        object = {
+                            a: true,
+                            b: true,
+                            c: true
+                        };
+                        // doesn't cause an error
+                        for (const key in object) {
+                            funcs.push(function() {
+                            console.log(key);
+                        });
+                        }
+                        funcs.forEach(function(func) {
+                            func();
+                            // outputs "a", then "b", then "c"
+                        });
+                         </code></pre>
+                    </div>
+                    <h3 class "title">Global Block Bindings</h3>
+                    <div>
+                        <pre><code>
+
+                        // in a browser
+                        var RegExp = "Hello!";
+                        console.log(window.RegExp); // "Hello!"
+                        var ncz = "Hi!";
+                        console.log(window.ncz); // "Hi!"
+
+                        // in a browser
+                        let RegExp = "Hello!";
+                        console.log(RegExp);
+                        console.log(window.RegExp === RegExp); // "Hello!"
+                        // false
+                        const ncz = "Hi!";
+                        console.log(ncz);
+                        console.log("ncz" in window); // "Hi!"
+                        // false
+
+                         </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(".nav-link").click(function() {
+                $("#collapsibleNavbar").hide();
+            });
+            $(".navbar-toggler").click(function() {
+                $("#collapsibleNavbar").toggle("slow", function() {});
+            });
+
+            // initialise accordion
+            $(function() {
+                $("#accordion").accordion({
+                    heightStyle: "content",
+                    collapsible: true,
+                    animate: 0
+                });
+            });
+
+            function countPlus() {
+                var content = [];
+
+                count = $("#accordion h3").length
+                for (i = 0; i < count; i++) {
+                    let localContent = {
+                        index: "",
+                        title: "",
+                        code: ""
+                    };
+                    localContent.index = i;
+                    localContent.title = $.trim($("#accordion h3").eq(i).text());
+                    localContent.code = $("#accordion code").eq(i).text();
+                    content.push(localContent);
+                    // console.log(content);
+                }
+                console.log(content);
+
+                var accordHtml = "";
+                $.each(content, function(i, obj) {
+                    accordHtml += "<h3>" + obj.title + "</h3>";
+                    accordHtml += "<div><pre><code>" + obj.code + "</code></pre></div>";
+                });
+
+                $("#accordion").append(accordHtml);
+
+                $(function() {
+                    $("#accordion").accordion({
+                        heightStyle: "content",
+                        collapsible: true,
+                        animate: 0
+                    });
+                });
+            }
+            countPlus();
+        </script>
+</body>
+
+</html>
